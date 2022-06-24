@@ -1,13 +1,13 @@
-/*3) Utilice el ejercicio 1, modific·ndolo para que las notas del estudiante estÈn en un vector de
+/*3) Utilice el ejercicio 1, modific√°ndolo para que las notas del estudiante est√©n en un vector de
 notas dentro de la estructura. Este vector de notas puede almacenar hasta 10 notas del alumno.
-Los lugares no utilizados se escriben con un valor -1 para indicar que ese lugar est· vacÌo.
-De esta manera, un estudiante puede haber rendido 2 ex·menes, otro 4 y otro 10, para citar algunos ejemplos.
-Se pide conservar la funcionalidad del programa teniendo en cuenta esta nueva organizaciÛn de la informaciÛn.
- Por lo tanto, para mostrar el promedio del estudiante, habr· que considerar las notas que tiene en este vector de notas,
+Los lugares no utilizados se escriben con un valor -1 para indicar que ese lugar est√° vac√≠o.
+De esta manera, un estudiante puede haber rendido 2 ex√°menes, otro 4 y otro 10, para citar algunos ejemplos.
+Se pide conservar la funcionalidad del programa teniendo en cuenta esta nueva organizaci√≥n de la informaci√≥n.
+ Por lo tanto, para mostrar el promedio del estudiante, habr√° que considerar las notas que tiene en este vector de notas,
   teniendo cuidado en utilizar solamente las notas que existan y omitiendo los -1 que pueda haber.*/
 
 #include <stdio.h>
-
+// Se declara la estructura
 struct estudiantes 
 {
     int dni;
@@ -17,6 +17,7 @@ struct estudiantes
 
 int main()
 {
+	//Se declaran las variable
     int i = 0;
     int j = 0;
     
@@ -25,7 +26,7 @@ int main()
     
     struct estudiantes estudiante[5];
 
-    for(i=0; i<5; i++)
+    for(i=0; i<5; i++) //Se ingresan los datos
 	{
         printf("Ingrese el dni del estudiante %d: ", i+1);
         scanf("%d", &estudiante[i].dni);
@@ -35,7 +36,7 @@ int main()
 
         printf("Ingrese notas del estudiante: ", i+1);
         
-        for(j=0; j<10; j++)
+        for(j=0; j<10; j++)// Si cantidad es mayor a j guarda las notas sino pone un -1
 		{
 	        if(j < estudiante[i].cantidad)
 			{
@@ -51,12 +52,12 @@ int main()
 
     for(i=0; i<5; i++)
 	{
-        for(j=0; j<estudiante[i].cantidad; j++)
+        for(j=0; j<estudiante[i].cantidad; j++) 
 		{
             acumulador += estudiante[i].notas[j];
         }
         
-        if(estudiante[i].cantidad == 0)
+        if(estudiante[i].cantidad == 0) // si la cantidad de nota es igual a 0, el promedio es 0 sino calcula el promedio
         {
             promedio = 0;
         }
@@ -65,7 +66,7 @@ int main()
             promedio = acumulador / estudiante[i].cantidad;
         }
 
-        printf("D.N.I.: %d\tPromedio: %.2f\n", estudiante[i].dni, promedio);
+        printf("D.N.I.: %d\tPromedio: %.2f\n", estudiante[i].dni, promedio);// muestra el promedio
     }
 }
 

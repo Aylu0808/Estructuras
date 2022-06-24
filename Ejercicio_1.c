@@ -3,7 +3,7 @@ Haga un programa que permita ingresar los datos de 5 estudiantes en un vector de
 Luego de ingresar los datos se deben mostrar los DNI de cada estudiante y el promedio que tiene en sus ex?menes. */
 
 #include <stdio.h>
-
+//Se declara la estructura
 struct estudiantes {
     int dni;
     float nota1;
@@ -11,11 +11,12 @@ struct estudiantes {
     };
 
 int main(){
+    //Se declaran las variables
     int i = 0;
     float promedio;
     struct estudiantes estudiante[5];
 
-    for(i=0; i<5; i++){
+    for(i=0; i<5; i++){ /*Se ingresan los datos */
         printf("Ingrese el dni del estudiante %d: ", i+1);
         scanf("%d", &estudiante[i].dni);
 
@@ -29,9 +30,9 @@ int main(){
 
     for(i=0; i<5; i++){
 
-        promedio = (estudiante[i].nota1 + estudiante[i].nota2)/2;
+        promedio = (estudiante[i].nota1 + estudiante[i].nota2)/2; //Se calcula el promedio con los datos ingreasdos
 
-        printf("D.N.I.: %d\tPromedio: %.2f\n", estudiante[i].dni, promedio);
+        printf("D.N.I.: %d\tPromedio: %.2f\n", estudiante[i].dni, promedio);// se muestra el promedio de cada estudiante
     }
     return 0;
 }
